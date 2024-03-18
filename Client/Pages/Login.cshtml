@@ -1,0 +1,40 @@
+﻿@page
+@model Client.Pages.LoginModel
+@{
+}
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group">
+                <label asp-for="loginVM.email" class="control-label"></label>
+                <input asp-for="loginVM.email" class="form-control" />
+                <span asp-validation-for="loginVM.email" class="text-danger"></span>
+
+            </div>
+
+            <div class="form-group">
+                <label asp-for="loginVM.password" class="control-label"></label>
+                <input asp-for="loginVM.password" class="form-control" type="password" />
+                <span asp-validation-for="loginVM.password" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Login" class="btn btn-primary" />
+            </div>
+
+        </form>
+        @if (ViewData["ErrorMessage"] != null)
+        {
+            <div class="alert alert-danger">@ViewData["ErrorMessage"]</div>
+        }
+
+        @if (ViewData["Message"] != null)
+        {
+            <div style="color:green">@ViewData["Message"]</div>
+        }
+        <a href="./Register">Register</a>
+    </div>
+</div>
